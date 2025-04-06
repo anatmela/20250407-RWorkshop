@@ -1,0 +1,115 @@
+---
+title: "Working with biological data with R"
+output:
+  html_document:
+    css: ~/research/mutsightlv/bin/style.css
+    toc: true
+    toc_depth: 4
+    toc_float: true
+    number_sections: false
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+    # code_folding: hide
+
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Workshop webpage and resources
+
+Workshop links (this page) -  
+Share document - https://etherpad.opendev.org/p/rworkshop20250407  
+[Carpentries code of conduct](https://docs.carpentries.org/policies/coc/)  
+
+# Workshop structure and links
+
+## Session 1
+
+<!-- introduce myself, the course, the links
+introduce helpers
+introduce code of conduct
+introduce post-its system
+introduction excercise
+Course goals
+Assuming no background in R
+Live coding - you do along me
+-->
+
+**Data entry and storage**
+
+- ['messy' and 'tidy' data](./tidy_data.html)
+  <!-- - [Link to tidy data exercise](./exercise/exs1_1.html) -->
+- [Data entry using excel](./data_entry.html)
+- [File formats](./formats.html)
+
+**Introduction to R and Rstudio**
+
+- why R <!-- -  (and by extension, why use a programmatic approach for data analysis) -->
+- [The R studio environment](https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro.html)
+- [Project management](https://swcarpentry.github.io/r-novice-gapminder/02-project-intro.html)
+- [Seeking help](https://swcarpentry.github.io/r-novice-gapminder/03-seeking-help.html)
+
+<!-- ### review - by take home assignment (to be reviewed at start of next session) -->
+<!-- - tidy messy data and save as text file -->
+<!-- - identify R packages for specific tasks -->
+<!-- - install package -->
+<!-- - read help file for new function -->
+
+
+
+## Session 2
+
+**Working with data in R**
+
+- [Read in data file](https://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1.html)
+- [Data structures](https://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1.html)
+- [Subsetting data](https://swcarpentry.github.io/r-novice-gapminder/06-data-subsetting.html)
+- writing data to file
+
+<!-- ### review - by take home assignment (to be reviewed at start of next session) -->
+<!-- - clean up 'messy data' using R -->
+
+## Session 3 
+
+**Creating Publication-Quality Graphics with ggplot2**
+
+- [Control flow](https://swcarpentry.github.io/r-novice-gapminder/instructor/07-control-flow.html) 
+- data types <!--(continuous, categorical)-->
+- [ggplot2](https://swcarpentry.github.io/r-novice-gapminder/instructor/08-plot-ggplot2.html)
+<!-- - modify plots to include additional layers of information. -->
+
+<!-- ### review - by take home assignment (to be reviewed at start of next session) -->
+<!-- - generate an additional plot type which was not shown in lesson (an example of suggested output will be given)  -->
+
+
+## Session 4 
+
+**Producing reports with knitr and markdown**
+
+- [Introduction to the tidyverse](https://swcarpentry.github.io/r-novice-gapminder/instructor/12-dplyr.html)
+- [Producing Reports With knitr and rmarkdown](https://swcarpentry.github.io/r-novice-gapminder/instructor/14-knitr-markdown.html)
+<!-- - this session will effectively recap all previously acquired skills as learners will go from data, to subsetting, to plot, to presenting in a report. Assignment will be done in class or to be taken home if not completed in time.   -->
+<br>
+<br>
+<hr>
+
+# Optional further reading and resources
+
+* [The Carpentries](https://carpentries.org)
+
+* [Data carpentry for Biologist](https://datacarpentry.org/semester-biology/) - additional course materials
+
+* [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/) - additional course materials
+
+* [R for data science](https://r4ds.hadley.nz) (eBook)
+
+* [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+
+* [A Quick Guide to Organizing Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
+
+* [Ten simple rules for biologists learning to program](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005871)
+
+* [Ten Simple Rules for Reproducible Computational Research](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285)
+

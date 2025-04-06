@@ -1,0 +1,60 @@
+---
+title: "File Formats"
+output:
+  html_document:
+    css: ~/research/mutsightlv/bin/style.css
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    number_sections: false
+    df_print: paged
+---
+
+<br>
+
+File formats are a unified way which softwares would know how to open and evaluate
+the content. 
+
+## Tabular formats
+
+### Export data into easy to read formats
+
+* Ideally - Save data in plain text files.  
+eg in Excel (one sheet per file): 
+  File -> Save As -> File Format: 
+  
+Comma-separated Values (.csv)
+```
+chr,position,orientation
+chr1,89009884,+
+chrX,14400933,-
+```
+<br>
+
+Tab-delimited Text (.txt)
+```
+date    patientID   proviral_load
+2023-07-01    M100544   100
+2023-10-01    F123455   40
+
+```
+<br>
+  
+
+* R has packages for reading excel files (recommended only if has to be multi-sheet).  
+
+<br>
+
+## Non-tabular formats
+
+### General formats
+
+Will not be covered here, but you may come across them - e.g. XML, JSON, TOML - often 
+have dedicated packages for reading into R. 
+
+### Biological formats
+
+Will not be covered here, but you may come across them - e.g. VCF, SAM, FASTA - often 
+have dedicated packages for reading into R - search https://www.bioconductor.org
+
+

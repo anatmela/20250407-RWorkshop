@@ -1,0 +1,24 @@
+---
+title: ""
+output:
+  html_document:
+    css: ~/research/mutsightlv/bin/style.css
+    number_sections: false
+    df_print: paged
+    include:
+      in_header: ../header.html
+
+---
+
+# Improving Messy Data (Tidy Data) 
+
+A lot of real data isn't very tidy, mostly because most scientists aren't taught
+about how to structure their data in a way that is easy to analyze.
+
+[Download an untidy version](https://datacarpentry.github.io/semester-biology/data/untidy-portal-data.xlsx) of some of the Portal Project data, which includes information on the data, species identification, weight and sampling plot for some small mammals. 
+
+Discuss: 
+
+1. What problems do you see with this file?
+2. How would you improve this data?
+

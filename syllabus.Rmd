@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Workshop webpage and resources
 
-Workshop links (this page) -  https://anatmela.github.io/20250407-RWorkshop/syllabus.html
+Workshop links (this page) -  https://anatmela.github.io/20250407-RWorkshop/syllabus.html  
 Share document - https://etherpad.opendev.org/p/rworkshop20250407  
 [Carpentries code of conduct](https://docs.carpentries.org/policies/coc/)  
 

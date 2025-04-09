@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
 Workshop links (this page) -  https://anatmela.github.io/20250407-RWorkshop  
 Share document - https://etherpad.opendev.org/p/rworkshop20250407  
 [Carpentries code of conduct](https://docs.carpentries.org/policies/coc/)  
-Sign-in sheet (7/4/2025) - https://forms.office.com/e/X3uEdLTMkk
+Sign-in sheet (10/4/2025) - https://forms.office.com/e/VJCnWMxfkc
 
 # Workshop structure and links
 
@@ -47,7 +47,7 @@ Live coding - you do along me
 
 **Introduction to R and Rstudio**
 
-- why R <!-- -  (and by extension, why use a programmatic approach for data analysis) -->
+- [why R](./WhyR.html) <!-- -  (and by extension, why use a programmatic approach for data analysis) -->
 - [The R studio environment](https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro.html)
 - [Project management](https://swcarpentry.github.io/r-novice-gapminder/02-project-intro.html)
 - [Seeking help](https://swcarpentry.github.io/r-novice-gapminder/03-seeking-help.html)

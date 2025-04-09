@@ -1,0 +1,116 @@
+---
+title: "Why R?"
+author: "Software carpentry - R workshop"
+date: "07/04/2025"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+autosize: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(RXKCD)
+```
+
+# working with biological data with R workshop
+  
+Workshop links -  https://anatmela.github.io/20250407-RWorkshop/
+
+Share document - https://etherpad.opendev.org/p/rworkshop20250407
+
+Carpentries code of conduct - https://docs.carpentries.org/policies/coc/ 
+
+R 
+
+Rstudio
+
+
+
+# Software carpentry - code of conduct
+
+https://docs.carpentries.org/policies/coc/
+
+# Software carpentry - The 'sticky notes' system
+
+![](presentation_files/stickynotes.jpg)
+  
+
+
+# What is R good for?  
+- Reproduicibility  
+- Efficiency
+- Flexibility  
+- Systematic  
+- Collabortive  
+
+# What can I do with R?
+
+- Data manipulation (filter, sort, etc)
+- Data visualisation
+- Statistics
+
+# Cautionary tale... 
+![](presentation_files/excelgenes.png)
+
+
+# What else can I do with R?
+ - Complex plots and graphs  
+ - Work with biological sequence data and reference data (e.g. Bioconductor)  
+
+![http://www.sthda.com/english/wiki/ggbio-visualize-genomic-data](presentation_files/ggbio_genes.png)
+  
+# What else can I do with R?
+ - Complex plots and graphs  
+ - Work with biological data (e.g. Bioconductor)  
+ - Work with Chemical data (e.g. ChemmineR)   
+
+![https://www.bioconductor.org/packages/devel/bioc/vignettes/ChemmineR/inst/doc/ChemmineR.html](presentation_files/chemical.png)
+  
+# What else can I do with R?
+ - Complex plots and graphs  
+ - Work with biological data (e.g. Bioconductor)  
+ - Work with Chemical data (e.g. ChemmineR)   
+ - Work with Economical data   
+ - Create apps (Shiny) 
+ - Interact with other software and different formats
+ - Write reports and presentations  
+ - Statistical learning
+ - Web scraping  
+ - Send emails  
+ - SO MUCH MORE... 
+  
+# RXKCD
+```{r, echo = TRUE}
+xkcd <- getXKCD('1168')
+```
+
+# working with biological data with R workshop
+  
+Workshop links -  https://anatmela.github.io/20250407-RWorkshop/  
+
+Share document - https://etherpad.opendev.org/p/rworkshop20250407
+
+Carpentries code of conduct - https://docs.carpentries.org/policies/coc/ 
+
+R 
+
+Rstudio
+
+<!-- # ggplot -->
+
+<!-- create graphics from your data by adding layers -->
+
+<!-- ggplot(data, mapping = aes()) +\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ # initialise -->
+
+<!-- geom_\<geom name\> +    \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ # actual type of plot (can have > 1) -->
+
+<!-- scale_\<which scale\>_\<type of data\> \ \ \ \ \ \ \ \ \    # optional (can set for each scale in aes) -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- other layers which can be added (used for further refinement of the plot):   -->
+<!-- - facets   -->
+<!-- - labs   -->
+<!-- - theme    -->
+<!-- - guides   -->
+<!-- - annotate -->

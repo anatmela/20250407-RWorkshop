@@ -51,6 +51,7 @@ Live coding - you do along me
 - [The R studio environment](https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro.html)
 - [Project management](https://swcarpentry.github.io/r-novice-gapminder/02-project-intro.html)
 - [Seeking help](https://swcarpentry.github.io/r-novice-gapminder/03-seeking-help.html)
+- [Read in data file, writing data to file](https://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1.html)
 
 <!-- ### review - by take home assignment (to be reviewed at start of next session) -->
 <!-- - tidy messy data and save as text file -->
@@ -64,11 +65,10 @@ Live coding - you do along me
 
 **Working with data in R**
 
-- [Read in data file](https://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1.html)
 - [Data structures](https://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1.html)
+- [Exploring data frames](https://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2.html)
 - [Subsetting data](https://swcarpentry.github.io/r-novice-gapminder/06-data-subsetting.html)
-- writing data to file
-
+  - [Take home assignment](./exercise/exs2_home.html)
 <!-- ### review - by take home assignment (to be reviewed at start of next session) -->
 <!-- - clean up 'messy data' using R -->
 

@@ -11,7 +11,7 @@
 
 
 
-<title>exs1_1.knit</title>
+<title>data frames in R - exercise</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1497,6 +1497,124 @@ window.onload = function() {
   PagedTableDoc.initAll();
 };
 </script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link href="data:text/css,%0Abody%7B%0Afont%2Dfamily%3A%20Helvetica%3B%0Afont%2Dsize%3A%2012pt%3B%0A%7D%0A%0Ah4%2Ch5%2Ch6%7B%0Afont%2Dsize%3A%2014pt%3B%0A%7D%0Ah3%7B%0Afont%2Dsize%3A%2016pt%3B%0A%7D%0Ah2%7B%0Afont%2Dsize%3A%2018pt%3B%0A%7D%0Ah1%7B%0Afont%2Dsize%3A%2020pt%3B%0A%7D%0A%3Cstyle%3E%0A%2Edummy%20%7B%0Acolumns%3A%202%20150px%3B%20%0A%2Dwebkit%2Dcolumns%3A%202%20150px%3B%20%0A%2Dmoz%2Dcolumns%3A%202%20150px%3B%20%0A%7D%0A%2Ecol3%20%7B%0Acolumns%3A%203%20100px%3B%0A%2Dwebkit%2Dcolumns%3A%203%20100px%3B%0A%2Dmoz%2Dcolumns%3A%203%20100px%3B%0A%7D%0A%2Ecol2%20%7B%0Acolumns%3A%202%20150px%3B%20%0A%2Dwebkit%2Dcolumns%3A%202%20150px%3B%20%0A%2Dmoz%2Dcolumns%3A%202%20150px%3B%20%0A%7D%0A%3C%2Fstyle%3E%0A" rel="stylesheet" type="text/css" />
+
+
+
+<style type="text/css">
+.main-container {
+max-width: 940px;
+margin-left: auto;
+margin-right: auto;
+}
+img {
+max-width:100%;
+}
+.tabbed-pane {
+padding-top: 12px;
+}
+.html-widget {
+margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+outline: none;
+}
+summary {
+display: list-item;
+}
+details > summary > p:only-child {
+display: inline;
+}
+pre code {
+padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+display: inline-table;
+max-height: 500px;
+min-height: 44px;
+overflow-y: auto;
+border: 1px solid #ddd;
+border-radius: 4px;
+}
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+content: "\e258";
+font-family: 'Glyphicons Halflings';
+border: none;
+}
+.tabset-dropdown > .nav-tabs > li.active {
+display: block;
+}
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+border: none;
+display: inline-block;
+border-radius: 4px;
+background-color: transparent;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+display: block;
+float: none;
+}
+.tabset-dropdown > .nav-tabs > li {
+display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -1904,147 +2022,47 @@ $(document).ready(function () {
 </body>
 </html>
 
-<style type="text/css">
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-</style>
-
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-
-
-
-<link href="data:text/css,%0Abody%7B%0Afont%2Dfamily%3A%20Helvetica%3B%0Afont%2Dsize%3A%2012pt%3B%0A%7D%0A%0Ah4%2Ch5%2Ch6%7B%0Afont%2Dsize%3A%2014pt%3B%0A%7D%0Ah3%7B%0Afont%2Dsize%3A%2016pt%3B%0A%7D%0Ah2%7B%0Afont%2Dsize%3A%2018pt%3B%0A%7D%0Ah1%7B%0Afont%2Dsize%3A%2020pt%3B%0A%7D%0A%3Cstyle%3E%0A%2Edummy%20%7B%0Acolumns%3A%202%20150px%3B%20%0A%2Dwebkit%2Dcolumns%3A%202%20150px%3B%20%0A%2Dmoz%2Dcolumns%3A%202%20150px%3B%20%0A%7D%0A%2Ecol3%20%7B%0Acolumns%3A%203%20100px%3B%0A%2Dwebkit%2Dcolumns%3A%203%20100px%3B%0A%2Dmoz%2Dcolumns%3A%203%20100px%3B%0A%7D%0A%2Ecol2%20%7B%0Acolumns%3A%202%20150px%3B%20%0A%2Dwebkit%2Dcolumns%3A%202%20150px%3B%20%0A%2Dmoz%2Dcolumns%3A%202%20150px%3B%20%0A%7D%0A%3C%2Fstyle%3E%0A" rel="stylesheet" type="text/css" />
-
-
-
-<style type="text/css">
-.main-container {
-max-width: 940px;
-margin-left: auto;
-margin-right: auto;
-}
-img {
-max-width:100%;
-}
-.tabbed-pane {
-padding-top: 12px;
-}
-.html-widget {
-margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-outline: none;
-}
-summary {
-display: list-item;
-}
-details > summary > p:only-child {
-display: inline;
-}
-pre code {
-padding: 0;
-}
-</style>
-
-
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-display: inline-table;
-max-height: 500px;
-min-height: 44px;
-overflow-y: auto;
-border: 1px solid #ddd;
-border-radius: 4px;
-}
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "\e259";
-font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "\e258";
-font-family: 'Glyphicons Halflings';
-border: none;
-}
-.tabset-dropdown > .nav-tabs > li.active {
-display: block;
-}
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-border: none;
-display: inline-block;
-border-radius: 4px;
-background-color: transparent;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-display: block;
-float: none;
-}
-.tabset-dropdown > .nav-tabs > li {
-display: none;
-}
-</style>
-
-<!-- code folding -->
-
-
-
-
-</head>
-
-<body>
-
-
-<div class="container-fluid main-container">
-
-
-
-
 <div id="header">
 
 
 
+<h1 class="title toc-ignore">data frames in R - exercise</h1>
 
 </div>
 
 
-<div id="improving-messy-data-tidy-data" class="section level1">
-<h1>Improving Messy Data (Tidy Data)</h1>
-<p>A lot of real data isn’t very tidy, mostly because most scientists
-aren’t taught about how to structure their data in a way that is easy to
-analyze.</p>
-<p><a href="https://datacarpentry.github.io/semester-biology/data/untidy-portal-data.xlsx">Download
-an untidy version</a> of some of the Portal Project data, which includes
-information on the data, species identification, weight and sampling
-plot for some small mammals.</p>
-<p>Discuss:</p>
+<p>The following dataset contains the integration sites (positions where
+a retrovirus was found in a sample to be integrated into the host
+genome) of the fictional virus RandoVirus. These integration sites were
+annotated using known datasets of the host genome with respect to the
+nearest gene and CpG islands, both measures of the transcriptional
+activity at the site.</p>
+<p><a href="../data/IntegrationSiteHumanRandoVirus.csv">Link to
+dataset</a></p>
 <ol style="list-style-type: decimal">
-<li>What problems do you see with this file?</li>
-<li>How would you improve this data?</li>
+<li><p>Download and save the dataset to your data directory</p></li>
+<li><p>Open the data in Excel, what is you impression of the file in
+terms of the concepts of messy/tidy we looked over.</p></li>
+<li><p>What format is the file?</p></li>
+<li><p>load the file into R and assign the data to an object. What
+structure does your data have?</p></li>
+<li><p>What are the column headers of the data? how many columns? how
+many rows?</p></li>
+<li><p>What does the <code>unique()</code> function do?</p></li>
+<li><p>Which values can the column <code>Site.orientation</code>
+take?</p></li>
+<li><p>Subset the data to only the integration sites which are within a
+gene.<br />
+Subset the data to only the integration sites which are in an
+intron.<br />
+What are the dimentions of the new tables?</p></li>
+<li><p>Which genes have integration sites in them? extract a list of
+these gene names so that you can upload it to pathway analysis tools, to
+see if particular pathways are targeted by the RandoVirus.<br />
+How long is this list?<br />
+Export (write) the data to a file using
+<code>writeLines()</code>.</p></li>
 </ol>
-</div>
 
 
 

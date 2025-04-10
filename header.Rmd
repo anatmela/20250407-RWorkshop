@@ -5,6 +5,6 @@ output:
     css: ~/research/mutsightlv/bin/style.css
 ---
 
-[<span style="color: teal;">Working with biological data with R</span>](../syllabus.html)
+[<span style="color: teal;">Working with biological data with R</span>](../index.html)
 
  <hr>

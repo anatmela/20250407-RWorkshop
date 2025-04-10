@@ -1,0 +1,78 @@
+---
+title: "data frames in R - exercise"
+output:
+  html_document:
+    css: ~/research/mutsightlv/bin/style.css
+    number_sections: false
+    df_print: paged
+    include:
+      before_body: ../header.html
+
+---
+
+```{r setup, include=FALSE}
+    # code_folding: hide
+
+
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
+The following dataset contains the integration sites (positions where a retrovirus
+was found in a sample to be integrated into the host genome) of the fictional 
+virus RandoVirus. These integration sites were annotated using known datasets of 
+the host genome with respect to the nearest gene and CpG islands, both measures
+of the transcriptional activity at the site. 
+
+[Link to dataset](../data/IntegrationSiteHumanRandoVirus.csv)
+
+1. Download and save the dataset to your data directory
+2. Open the data in Excel, what is you impression of the file in terms of the concepts of messy/tidy we looked over. 
+3. What format is the file? 
+4. load the file into R and assign the data to an object. What structure 
+does your data have? 
+```{r, eval = FALSE}
+dataset <- read.csv("../data/IntegrationSiteHumanRandoVirus.csv")
+str(dataset)
+```
+5. What are the column headers of the data? how many columns? how many rows?  
+
+```{r, eval = FALSE}
+colnames(dataset)
+ncol(dataset)
+nrow(dataset)
+```
+
+6. What does the ``unique()`` function do?
+```{r, eval = FALSE}
+?unique
+```
+
+7. Which values can the column ``Site.orientation`` take? 
+```{r, eval = FALSE}
+unique(dataset$Site.orientation)
+```
+
+8. Subset the data to only the integration sites which are within a gene.  
+Subset the data to only the integration sites which are in an intron.  
+What are the dimentions of the new tables? 
+```{r}
+dataingenes <- dataset[dataset$In.a.gene != FALSE, ]
+datainintrons <- dataingenes[dataingenes$Is.it.in.an.exon == FALSE, ]
+```
+
+9. Which genes have integration sites in them? extract a list of these gene names so 
+that you can upload it to pathway analysis tools, to see if particular pathways
+are targeted by the RandoVirus.  
+How long is this list?  
+Export (write) the data to a file using ``writeLines()``. 
+
+```{r}
+genes <- dataset$In.a.gene
+genes <- genes[genes != FALSE]
+genes <- unique(genes)
+length(genes)
+writeLines(genes, con = "../data/genesRandoVirus.txt")
+```
+

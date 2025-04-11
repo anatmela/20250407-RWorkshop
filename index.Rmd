@@ -22,7 +22,10 @@ knitr::opts_chunk$set(echo = FALSE)
 Workshop links (this page) -  https://anatmela.github.io/20250407-RWorkshop  
 Share document - https://etherpad.opendev.org/p/rworkshop20250407  
 [Carpentries code of conduct](https://docs.carpentries.org/policies/coc/)  
-Sign-in sheet (10/4/2025) - https://forms.office.com/e/VJCnWMxfkc
+Sign-in sheet:  
+  (7/4/2025) - https://forms.office.com/e/X3uEdLTMkk  
+ (10/4/2025) - https://forms.office.com/e/VJCnWMxfkc  
+ (14/4/2025) - https://forms.office.com/e/3UxbL53cba  
 
 # Workshop structure and links
 

@@ -97,20 +97,20 @@ R
 
 Rstudio
 
-<!-- # ggplot -->
+# ggplot
 
-<!-- create graphics from your data by adding layers -->
+create graphics from your data by adding layers
 
-<!-- ggplot(data, mapping = aes()) +\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ # initialise -->
+ggplot(data, mapping = aes()) +\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ # initialise
 
-<!-- geom_\<geom name\> +    \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ # actual type of plot (can have > 1) -->
+geom_\<geom name\>() +    \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ # actual type of plot (can have > 1)
 
-<!-- scale_\<which scale\>_\<type of data\> \ \ \ \ \ \ \ \ \    # optional (can set for each scale in aes) -->
-<!-- <br> -->
-<!-- <br> -->
-<!-- other layers which can be added (used for further refinement of the plot):   -->
-<!-- - facets   -->
-<!-- - labs   -->
-<!-- - theme    -->
-<!-- - guides   -->
-<!-- - annotate -->
+scale_\<which scale\>_\<type of data\> \ \ \ \ \ \ \ \ \    # optional (can set for each scale in aes)
+<br>
+<br>
+other layers which can be added (used for further refinement of the plot):  
+- facets  
+- labs  
+- theme  
+- guides  
+- annotate  

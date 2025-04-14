@@ -82,6 +82,7 @@ Live coding - you do along me
 - [Control flow](https://swcarpentry.github.io/r-novice-gapminder/instructor/07-control-flow.html) 
 - data types <!--(continuous, categorical)-->
 - [ggplot2](https://swcarpentry.github.io/r-novice-gapminder/instructor/08-plot-ggplot2.html)
+  - [Take home assignment](./exercise/exs3_home.html)
 <!-- - modify plots to include additional layers of information. -->
 
 <!-- ### review - by take home assignment (to be reviewed at start of next session) -->

@@ -1,0 +1,144 @@
+---
+title: "Using ggplot2 - exercise"
+output:
+  html_document:
+    css: ~/research/mutsightlv/bin/style.css
+    number_sections: false
+    df_print: paged
+    include:
+      before_body: ../header.html
+
+---
+
+```{r setup, include=FALSE}
+    # code_folding: hide
+
+
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
+The following dataset contains the integration sites (positions where a retrovirus
+was found in a sample to be integrated into the host genome) of the fictional 
+virus RandoVirus. These integration sites were annotated using known datasets of 
+the host genome with respect to the nearest gene and CpG islands, both measures
+of the transcriptional activity at the site. 
+
+[Link to dataset](../data/IntegrationSiteHumanRandoVirus.csv)
+
+<br>
+1. If you have not yet, download and save the dataset to your data directory. 
+
+<br>
+2. read in the data to a data frame in R
+```{r, eval = FALSE}
+dataset <- read.csv("../data/IntegrationSiteHumanRandoVirus.csv")
+```
+
+<br>
+3. Using ``ggplot()`` and ``geom_bar()``, plot how many integration sites are found in each 
+chromosome? Is the order of the columns in the histogram what you expected? 
+
+Example: 
+```{r, echo = TRUE}
+geom_bar(aes(x = Chr))
+```
+
+
+```{r}
+ggplot(dataset) + 
+  geom_bar(aes(x = Chr)) + theme_bw() 
+
+ggplot(dataset) + 
+  geom_bar(aes(x = factor(Chr, levels = paste0("chr", c(1:22, "X", "Y"))), 
+               fill = after_stat(count))) + 
+  labs(y = "Integration sites", x = "Chromosome") + theme_bw()  + 
+  theme(axis.text.x = element_text(angle = 30))
+
+```
+
+<br>
+4. Using ``ggplot()`` and ``geom_boxplot()``, plot how many integration sites are found 
+in each orientation. Is RandoVirus biased for integration in either orientation? 
+How would you know for sure? 
+Plot the same plot separately for each chromosome. Do you find the same bias for 
+all chromosomes? 
+
+```{r}
+ggplot(dataset) + 
+  geom_bar(aes(x = Site.orientation))
+
+ggplot(dataset) + 
+  geom_bar(aes(x = Site.orientation)) + 
+  facet_wrap(~Chr)
+```
+
+<br>
+5. The relative orientation between an integrated provirus and the host gene may
+affect the expression of either.  
+
+- Subset the data to only those integration sites within a gene, and the Orientation of the gene is either "+" or "-" only.
+- Using ``ifelse()``, define a new **relort** column where the value is "Same" if the 
+virus(``Site.orientation``) and gene orientation (``Orientation.of.gene``) are equal, the "Opposite" if they are not. 
+- Use ``ggplot2`` and``geom_bar()`` to plot the question - is RandoVirus biased for 
+integration in either relative orientation. 
+```{r}
+dataingene <- dataset[dataset$In.a.gene != "FALSE" & 
+                        dataset$Orientation.of.gene %in% c("+", "-"), 
+                      c(1:5)]
+dataingene$relort <- ifelse(dataingene$Site.orientation == dataingene$Orientation.of.gene, 
+                            "Same", "Opposite")
+
+ggplot(dataingene) +
+  geom_bar(aes(x = relort))
+
+```
+<br>
+6. The ``Distance.to.nearest.5.`` column describes the genomic distance (along the
+chromosome) between each viral integration site and the nearest 5' end of a host 
+gene. This distance is reported as a negative value if the host gene is upstream 
+to the integrated virus. 
+  - Using ``ggplot()`` and ``geom_boxplot()``, plot the distribution of the values 
+  observed here.  
+```{r echo = TRUE}
+geom_boxplot(aes(y = Distance.to.nearest.5., x = Site.orientation, 
+                   col = Site.orientation))
+```
+  - modify the above, so that instead of plotting ``Distance.to.nearest.5.``
+  you will be plotting ``abs(Distance.to.nearest.5.)``. What is the difference? 
+  - install the ggplot extention ``ggbeeswarm`` using ``install.packages()``. Use ``ggbeeswarm::geom_beeswarm()`` instead of boxplot. What 
+  is the difference? What would happen if you include both? 
+
+```{r echo = TRUE}
+  ggbeeswarm::geom_beeswarm(aes(y = abs(Distance.to.nearest.5.), Site.orientation, 
+                                col = Site.orientation))
+```
+
+```{r}
+
+ggplot(dataset) + 
+  geom_boxplot(aes(y = Distance.to.nearest.5., x = Site.orientation, 
+                   col = Site.orientation))
+
+ggplot(dataset) + 
+  geom_boxplot(aes(y = abs(Distance.to.nearest.5.), x = Site.orientation, 
+                   col = Site.orientation))
+
+ggplot(dataset) + 
+  ggbeeswarm::geom_beeswarm(aes(y = abs(Distance.to.nearest.5.), Site.orientation, 
+                                col = Site.orientation))
+
+```
+
+<br>
+7. Save your last plot to file called "exs3.png" and to a file called "exs3.pdf". 
+What is the difference?
+
+```{r}
+ggsave("exs3.png")
+ggsave("exs3.pdf")
+```
+
+<br>
+<br>

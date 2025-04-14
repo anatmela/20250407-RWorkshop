@@ -97,6 +97,16 @@ R
 
 Rstudio
 
+# Data types
+
+The type of data you are trying to interpret will determine which
+plot type you should use
+<span style="color:grey">and which statistical tests may be informative</span>.
+
+![](presentation_files/typesofdata.jpeg)
+  
+https://youtu.be/7bsNWq2A5gI
+
 # ggplot
 
 create graphics from your data by adding layers

@@ -26,6 +26,12 @@ Sign-in sheet:
   (7/4/2025) - https://forms.office.com/e/X3uEdLTMkk  
  (10/4/2025) - https://forms.office.com/e/VJCnWMxfkc  
  (14/4/2025) - https://forms.office.com/e/3UxbL53cba  
+ (16/6/2025) - https://forms.office.com/e/T2qcZPDVBh
+ 
+[**Workshop (Anonymous) survey - please fill**](https://forms.office.com/e/4e1suPFW5t)
+
+<hr>
+<br>
 
 # Workshop structure and links
 
@@ -95,6 +101,7 @@ Live coding - you do along me
 
 - [Introduction to the tidyverse](https://swcarpentry.github.io/r-novice-gapminder/instructor/12-dplyr.html)
 - [Producing Reports With knitr and rmarkdown](https://swcarpentry.github.io/r-novice-gapminder/instructor/14-knitr-markdown.html)
+  - [Assignment in class](./exercise/exs4_class.html)
 <!-- - this session will effectively recap all previously acquired skills as learners will go from data, to subsetting, to plot, to presenting in a report. Assignment will be done in class or to be taken home if not completed in time.   -->
 <br>
 <br>
@@ -109,6 +116,10 @@ Live coding - you do along me
 * [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/) - additional course materials
 
 * [R for data science](https://r4ds.hadley.nz) (eBook)
+
+* [R Markdown: the definitive guide](https://bookdown.org/yihui/rmarkdown/) (eBook)
+
+* [Posit cheet sheets](https://posit.co/resources/cheatsheets/) (Also in Rstudio: Help -> Cheat Sheets)
 
 * [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 

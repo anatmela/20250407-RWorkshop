@@ -1,0 +1,185 @@
+---
+title: "Using RMarkdown and knitr - exercise"
+output:
+  html_document:
+    css: ~/research/mutsightlv/bin/style.css
+    number_sections: false
+    df_print: paged
+    include:
+      before_body: ../header.html
+
+---
+
+```{r setup, include=FALSE}
+    # code_folding: hide
+
+
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(eval = FALSE)
+
+library(tidyverse)
+
+```
+
+```{r produce_dataset, echo = FALSE, eval = FALSE}
+set.seed(12345)
+# 
+# - viral loads copies per mL (1-100, 60-1000)
+# - clinical outcome (asymptomatic, Randesease)
+# - Age (20-70, NA)
+# - known coninfection (HBV, HCV, HIV, HTLV, mostly NA)
+# - known comorbidities (T2D (mostly >40), HT (mostly >50), CVD (mostly > 40), mostly NA)
+# - patient group - hospital1, hospital2, hospital3
+# - 
+# 
+# - Questions - what is the difference between geom_boxplot, geom_violin, geom_beeswarm
+
+loadvec <- c(
+round(abs(rnorm(20))),
+round(abs(rnorm(20, mean = 2))),
+round(abs(rnorm(20, mean = 3))),
+round(abs(rnorm(10, mean = 5))),
+round(abs(rnorm(10, mean = 8, sd = 2))),
+round(abs(rnorm(10, mean = 13, sd = 3))),
+round(abs(rnorm(10, mean = 21, sd = 4))), 
+sample(1:100, 400, TRUE), 
+sample(60:400, 500, TRUE))
+
+clinvec <- c(rep("Asymptomatic", 500), rep("Randesease", 500))
+
+agevec <- sample(20:70, 1000, TRUE)
+agevec[sample(1:1000, 25)] <- NA_real_
+
+coinf <- sample(c("HBV", "HCV", "HIV", "HTLV", NA_character_), 1000, 
+                 TRUE, prob = c(0.05, 0.06, 0.07, 0.08, 0.74))
+
+comor <- rep(NA_character_, 1000)
+comor[which(agevec > 40)] <- sample(c("T2D", "HT", "CVD", 
+                                      NA_character_), length(which(agevec > 40)), 
+                                    TRUE, 
+                                    prob = c(0.01, 0.02, 0.02, 0.95))
+
+
+studyID <- paste0(sample(c("F", "M", "P"), 1000, TRUE), 
+                  sample(3000:9000, 1000))
+
+dataset <- tibble(studyID, 
+            hospital = sample(c("Hospital1", "Hospital2", "Hospital3"), 1000, TRUE), 
+            clinical_status  = clinvec,
+            age = agevec,
+            proviral_load = loadvec / 4, 
+            coinfections = coninf,
+            comorbidities = comor) %>%
+  arrange(hospital, 
+          studyID)
+
+write_tsv(dataset, "../data/SubjectInfoHumanRandoVirus.tsv")
+
+```
+
+You are working in collaboration with clinical teams in three hospitals, caring for individuals living with RandoVirus infection. Some of these are asymptomatic (i.e. they have no symptoms relating to RandoVirus), whereas some are affected by the clinical condition of Randesease. With the help of the clinical teams you have been compiling a dataset of the subjects of your study, noting demographic and clinical information. 
+
+You would like to prepare a **report/presentation** describing this cohort that will be shared with your collaborators, guide followup research and provide a basis for your manuscript. Give your answers meaningfull **headers**. If a question can be answered by simple text, calculate the answer **inline**. 
+
+[Link to the dataset](../data/SubjectInfoHumanRandoVirus.tsv)
+
+1. Start an RMarkdown script. load the tidyverse package in the setup chunk. 
+
+2. Download the dataset using the link above. The data is saved in tab-separated text format, so will need to be read with the appropriate ``readr`` function. (hint: look them up on https://readr.tidyverse.org)
+
+```{r}
+subjectinfo <- readr::read_tsv("../data/SubjectInfoHumanRandoVirus.tsv", 
+                show_col_types = FALSE)
+```
+
+3. How many people are included in the study? Show a summary table describing how many subjects are included from each hospital. 
+
+```{r}
+nrow(subjectinfo)
+count(subjectinfo, hospital)
+```
+
+4. How many people in the study have which clinical status? How does that compare between hospitals? display using a bar graph (hint: first calculate the required value using ``count()`` then plot using ``geom_bar()`` with the ``stat = "identity`` option).   
+```{r}
+subjectinfo %>%
+  count(hospital, clinical_status) %>%
+  ggplot() + 
+  geom_bar(aes(x = hospital, fill = clinical_status, y = n), stat = "identity", 
+           position = "dodge") + 
+  theme_bw()
+```
+
+5. Is the subject age known about all participants? is any data missing?  
+Is there a correlation between proviral load and subject age? Evaluate via ``geom_point()`` 
+
+```{r}
+subjectinfo %>% filter(is.na(age)) %>% nrow()
+
+subjectinfo %>%
+  filter(!is.na(age)) %>%
+  ggplot(aes(x = age, y = proviral_load)) +
+  geom_point() + 
+  geom_smooth(method = "lm") + theme_bw()
+
+```
+
+6. Is there a difference between the proviral load of subjects with Randesease and 
+the proviral load of asymptomatic people living with RandoVirus? 
+
+```{r}
+subjectinfo %>%
+  ggplot(aes(x = clinical_status, y = proviral_load)) + 
+  geom_boxplot(aes(col = clinical_status)) + 
+  ggbeeswarm::geom_beeswarm(alpha = 0.5) + 
+  ggsignif::geom_signif(comparisons = list(c(1, 2))) + 
+  theme_bw()
+```
+7. Is there a difference between the proviral load of subjects with existing 
+comorbidities and the proviral load of subjects with none of the comorbidities investigated?
+
+```{r}
+subjectinfo %>%
+  mutate(hascomorbid = !is.na(comorbidities)) %>%
+  ggplot(aes(x = hascomorbid, y = proviral_load)) + 
+  geom_boxplot(aes(col = hascomorbid)) + 
+  ggbeeswarm::geom_beeswarm(alpha = 0.1) + 
+  ggsignif::geom_signif(comparisons = list(c(1, 2))) + 
+  theme_bw()
+
+```
+8. Advanced: install patchwork library. Combine the plot from the above with a 
+similar plot looking for the differences in proviral load on the bases of known 
+coinfections. Produce as a single figure with two panels. 
+
+```{r}
+library(patchwork)
+
+p1 <- subjectinfo %>%
+  mutate(hascomorbid = !is.na(comorbidities)) %>%
+  ggplot(aes(x = hascomorbid, y = proviral_load)) + 
+  geom_boxplot(aes(col = hascomorbid)) + 
+  ggbeeswarm::geom_beeswarm(alpha = 0.1) + 
+  ggsignif::geom_signif(comparisons = list(c(1, 2))) + 
+  theme_bw() + 
+  labs(y = "Proviral load", x = "Has comorbidities") + 
+  theme(legend.position = "none")
+
+p2 <- subjectinfo %>%
+  mutate(hascoinf = !is.na(coinfections)) %>%
+  ggplot(aes(x = hascoinf, y = proviral_load)) + 
+  geom_boxplot(aes(col = hascoinf)) + 
+  ggbeeswarm::geom_beeswarm(alpha = 0.1) + 
+  ggsignif::geom_signif(comparisons = list(c(1, 2))) + 
+  theme_bw() + 
+  labs(y = "Proviral load", x = "Has coinfections") + 
+  theme(legend.position = "none")
+
+p1 + p2 + plot_annotation(tag_levels = "A")
+
+
+```
+
+
+
+<br>
+<br>

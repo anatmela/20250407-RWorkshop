@@ -20,13 +20,13 @@ knitr::opts_chunk$set(echo = FALSE)
 # Workshop webpage and resources
 
 Workshop links (this page) -  https://anatmela.github.io/20250407-RWorkshop  
-Share document - https://etherpad.opendev.org/p/rworkshop20250407  
+<!-- Share document - https://etherpad.opendev.org/p/rworkshop20250407   -->
 [Carpentries code of conduct](https://docs.carpentries.org/policies/coc/)  
-Sign-in sheet:  
-  (7/4/2025) - https://forms.office.com/e/X3uEdLTMkk  
- (10/4/2025) - https://forms.office.com/e/VJCnWMxfkc  
- (14/4/2025) - https://forms.office.com/e/3UxbL53cba  
- (16/6/2025) - https://forms.office.com/e/T2qcZPDVBh
+<!-- Sign-in sheet:   -->
+<!--   (7/4/2025) - https://forms.office.com/e/X3uEdLTMkk   -->
+<!--  (10/4/2025) - https://forms.office.com/e/VJCnWMxfkc   -->
+<!--  (14/4/2025) - https://forms.office.com/e/3UxbL53cba   -->
+<!--  (16/6/2025) - https://forms.office.com/e/T2qcZPDVBh -->
  
 [**Workshop (Anonymous) survey - please fill**](https://forms.office.com/e/4e1suPFW5t)
 
